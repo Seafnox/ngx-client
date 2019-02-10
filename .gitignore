@@ -1,44 +1,41 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Created by .ignore support plugin (hsz.mobi)
+### Node template
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# compiled output
-/dist
-/tmp
-/out-tsc
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
 
-# dependencies
-/node_modules
+# Dependency directories
+node_modules/
 
-# profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
+# TypeScript v1 declaration files
+typings/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Optional npm cache directory
+.npm
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+# User-specific stuff
+.idea
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# IntelliJ
+out/
 
-# System Files
-.DS_Store
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+### Windows template
+# Windows thumbnail cache files
 Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Project-specific stuff
+uploads

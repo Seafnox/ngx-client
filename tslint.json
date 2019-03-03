@@ -12,6 +12,7 @@
     "rulesDirectory": ["codelyzer"],
     "rules": {
         "arrow-parens": true,
+        "ter-arrow-parens": false,
         "component-class-suffix": true,
         "directive-class-suffix": true,
         "deprecation": {
@@ -22,6 +23,7 @@
             "rxjs/Rx"
         ],
         "interface-name": true,
+        "i18n": false,
         "max-classes-per-file": [true, 1],
         "member-access": [true, "no-public"],
         "no-consecutive-blank-lines": false,
@@ -38,6 +40,7 @@
         "no-switch-case-fall-through": true,
         "no-use-before-declare": true,
         "no-var-requires": false,
+        "no-void-expression": false,
         "object-literal-key-quotes": [
             true,
             "as-needed"
@@ -109,9 +112,10 @@
             true,
             "check-multiline-start"
         ],
-        "newline-per-chained-call": true,
+        "newline-per-chained-call": false,
         "newline-before-return": true,
         "prefer-method-signature": true,
+        "no-floating-promises": false,
         "no-unnecessary-initializer": true,
         "no-unnecessary-callback-wrapper": true,
         "prefer-template": true,
@@ -126,6 +130,18 @@
         "unnecessary-constructor": true,
         "no-construct": true,
         "arrow-return-shorthand": true,
-        "radix": false
+        "radix": false,
+        "directive-selector": [
+            true,
+            "attribute",
+            "app",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "app",
+            "kebab-case"
+        ]
     }
 }

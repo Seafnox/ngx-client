@@ -1,7 +1,1 @@
-<!--<app-ngx-editor-message></app-ngx-editor-message>-->
-<!--<app-ngx-editor-toolbar></app-ngx-editor-toolbar>-->
-<app-ngx-editor></app-ngx-editor>
-
-<hr/>
-
-<quill-editor></quill-editor>
+<quill-editor [formControl]="form" (onContentChanged)="onContentChanged($event)"></quill-editor>

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditorsComponent } from './editors.component';
-import { NgxEditorModule } from 'ngx-editor';
+import { ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 
 @NgModule({
     imports: [
         CommonModule,
-        NgxEditorModule,
-        QuillModule,
+        ReactiveFormsModule,
+        QuillModule.forRoot(),
     ],
     declarations: [EditorsComponent],
     exports: [EditorsComponent],

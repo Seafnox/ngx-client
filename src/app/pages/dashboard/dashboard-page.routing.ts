@@ -1,26 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
-import { EditorsPageComponent } from '../editors/editors-page.component';
+import { DashboardPageComponent } from './dashboard-page.component';
+import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: DashboardComponent,
-    },
-    {
-        path: 'editor',
-        component: EditorsPageComponent,
-    },
-    {
-        path: '**',
-        component: NotFoundPageComponent,
+        component: DashboardPageComponent,
+        children: [
+            {
+                path: '',
+                component: DashboardComponent,
+            },
+            {
+                path: 'editor',
+                loadChildren: '../editors/editors-page.module#EditorsPageModule',
+            },
+            {
+                path: '**',
+                component: NotFoundPageComponent,
+            },
+        ]
     },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
 export class DashboardPageRouting {}

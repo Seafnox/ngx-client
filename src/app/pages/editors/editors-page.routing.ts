@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
+import { EditorsComponent } from '../../components/editors/editors.component';
+import { EditorsPageComponent } from './editors-page.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: DashboardComponent,
-    },
-    {
-        path: '**',
-        component: NotFoundPageComponent,
+        component: EditorsPageComponent,
+        children: [
+            {
+                path: '',
+                component: EditorsComponent,
+            },
+            {
+                path: '**',
+                component: NotFoundPageComponent,
+            },
+        ]
     },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
 export class EditorsPageRouting {}

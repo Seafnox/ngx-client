@@ -4,6 +4,7 @@ import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { NotFoundPageModule } from '../pages/not-found/not-found-page.module';
 import { HttpClientModule } from '@angular/common/http';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
     declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
         AppRouting,
         NotFoundPageModule,
         HttpClientModule,
+        QuillModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent],

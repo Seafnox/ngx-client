@@ -8,7 +8,7 @@ import { QuillModule } from 'ngx-quill';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        QuillModule.forRoot(),
+        QuillModule,
     ],
     declarations: [EditorsComponent],
     exports: [EditorsComponent],

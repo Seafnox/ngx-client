@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EntityViewPageComponent } from './entity-view-page.component';
-import { EntityFormModule } from '../../components/entity-form/entity-form.module';
+import { EntityFormModule } from '../../../components/entity-form/entity-form.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoadingModule } from '../../components/loading/loading.module';
+import { LoadingModule } from '../../../components/loading/loading.module';
 
 @NgModule({
     declarations: [EntityViewPageComponent],

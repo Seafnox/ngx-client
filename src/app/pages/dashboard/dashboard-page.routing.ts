@@ -18,20 +18,8 @@ const routes: Routes = [
                 loadChildren: '../editors/editors-page.module#EditorsPageModule',
             },
             {
-                path: 'entity',
-                loadChildren: '../entity-list/entity-list-page.module#EntityListPageModule',
-            },
-            {
-                path: 'entity/create',
-                loadChildren: '../entity-create/entity-create-page.module#EntityCreatePageModule',
-            },
-            {
-                path: 'entity/:id',
-                loadChildren: '../entity-view/entity-view-page.module#EntityViewPageModule',
-            },
-            {
-                path: 'entity/:id/update',
-                loadChildren: '../entity-update/entity-update-page.module#EntityViewPageModule',
+                path: 'entities',
+                loadChildren: '../entities/entities.module#EntitiesModule',
             },
             {
                 path: '**',

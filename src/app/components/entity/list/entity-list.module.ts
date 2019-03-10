@@ -4,7 +4,6 @@ import { EntityListComponent } from './entity-list.component';
 
 @NgModule({
     declarations: [EntityListComponent],
-    exports: [EntityListComponent],
     imports: [
         CommonModule,
     ],

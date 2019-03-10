@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
 import { EntityCreatePageComponent } from './create/entity-create-page.component';
 import { EntityEditPageComponent } from './edit/entity-edit-page.component';
-import { EntityViewPageComponent } from './view/entity-view-page.component';
+import { EntityInfoPageComponent } from './info/entity-info-page.component';
 import { EntityListPageComponent } from './list/entity-list-page.component';
 
 const routes: Routes = [
@@ -20,12 +20,12 @@ const routes: Routes = [
         component: EntityEditPageComponent,
     },
     {
-        path: ':id/view',
-        component: EntityViewPageComponent,
+        path: ':id/info',
+        component: EntityInfoPageComponent,
     },
     {
         path: ':id',
-        redirectTo: ':id/view',
+        redirectTo: ':id/info',
         pathMatch: 'full',
     },
     {

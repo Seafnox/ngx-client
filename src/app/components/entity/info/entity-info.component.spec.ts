@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntityCreatePageComponent } from './entity-create-page.component';
+import { EntityInfoComponent } from './entity-info.component';
 
-describe('UserInfoPageComponent', () => {
-    let component: EntityCreatePageComponent;
-    let fixture: ComponentFixture<EntityCreatePageComponent>;
+describe('EntityInfoComponent', () => {
+    let component: EntityInfoComponent;
+    let fixture: ComponentFixture<EntityInfoComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [EntityCreatePageComponent],
+            declarations: [EntityInfoComponent],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(EntityCreatePageComponent);
+        fixture = TestBed.createComponent(EntityInfoComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

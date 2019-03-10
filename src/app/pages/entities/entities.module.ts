@@ -5,7 +5,7 @@ import { EntitiesRouting } from './entities.routing';
 import { EntityListPageModule } from './list/entity-list-page.module';
 import { EntityCreatePageModule } from './create/entity-create-page.module';
 import { EntityEditPageModule } from './edit/entity-edit-page.module';
-import { EntityViewPageModule } from './view/entity-view-page.module';
+import { EntityInfoPageModule } from './info/entity-info-page.module';
 
 @NgModule({
     declarations: [],
@@ -16,7 +16,7 @@ import { EntityViewPageModule } from './view/entity-view-page.module';
         EntityListPageModule,
         EntityCreatePageModule,
         EntityEditPageModule,
-        EntityViewPageModule,
+        EntityInfoPageModule,
     ],
 })
 export class EntitiesModule {}

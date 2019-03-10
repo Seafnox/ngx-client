@@ -2,24 +2,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntityEditPageComponent } from './entity-edit-page.component';
 
-describe('EntityViewPageComponent', () => {
-  let component: EntityEditPageComponent;
-  let fixture: ComponentFixture<EntityEditPageComponent>;
+describe('UserInfoPageComponent', () => {
+    let component: EntityEditPageComponent;
+    let fixture: ComponentFixture<EntityEditPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [EntityEditPageComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [EntityEditPageComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(EntityEditPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(EntityEditPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

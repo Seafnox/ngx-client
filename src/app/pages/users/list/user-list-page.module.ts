@@ -5,6 +5,7 @@ import { LoadingModule } from '../../../components/loading/loading.module';
 
 @NgModule({
     declarations: [UserListPageComponent],
+    exports: [UserListPageComponent],
     imports: [
         CommonModule,
         LoadingModule,

@@ -5,6 +5,7 @@ import { LoadingModule } from '../../../components/loading/loading.module';
 
 @NgModule({
     declarations: [UserCreatePageComponent],
+    exports: [UserCreatePageComponent],
     imports: [
         CommonModule,
         LoadingModule,

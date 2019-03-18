@@ -19,7 +19,11 @@ const routes: Routes = [
             },
             {
                 path: 'entities',
-                loadChildren: '../entities/entities.module#UsersModule',
+                loadChildren: '../entities/entity-pages.module#EntityPagesModule',
+            },
+            {
+                path: 'entities',
+                loadChildren: '../users/user-pages.module#UserPagesModule',
             },
             {
                 path: '**',

@@ -4,6 +4,7 @@ import { UserInfoComponent } from './user-info.component';
 
 @NgModule({
     declarations: [UserInfoComponent],
+    exports: [UserInfoComponent],
     imports: [
         CommonModule,
     ],

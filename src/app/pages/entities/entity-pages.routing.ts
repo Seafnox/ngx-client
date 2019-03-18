@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
-import { UserCreatePageComponent } from './create/user-create-page.component';
-import { UserEditPageComponent } from './edit/user-edit-page.component';
-import { UserInfoPageComponent } from './info/user-info-page.component';
-import { UserListPageComponent } from './list/user-list-page.component';
+import { EntityCreatePageComponent } from './create/entity-create-page.component';
+import { EntityEditPageComponent } from './edit/entity-edit-page.component';
+import { EntityInfoPageComponent } from './info/entity-info-page.component';
+import { EntityListPageComponent } from './list/entity-list-page.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: UserListPageComponent,
+        component: EntityListPageComponent,
     },
     {
         path: 'create',
-        component: UserCreatePageComponent,
+        component: EntityCreatePageComponent,
     },
     {
         path: ':id/edit',
-        component: UserEditPageComponent,
+        component: EntityEditPageComponent,
     },
     {
         path: ':id/info',
-        component: UserInfoPageComponent,
+        component: EntityInfoPageComponent,
     },
     {
         path: ':id',
@@ -38,4 +38,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class UsersRouting {}
+export class EntityPagesRouting {}

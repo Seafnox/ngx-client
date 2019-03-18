@@ -4,6 +4,7 @@ import { EntityFormComponent } from './entity-form.component';
 
 @NgModule({
     declarations: [EntityFormComponent],
+    exports: [EntityFormComponent],
     imports: [
         CommonModule,
     ],

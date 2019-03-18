@@ -1,3 +1,10 @@
-<p>
-  user-list works!
-</p>
+<div>User list:</div>
+<div>
+    <a routerLink="./create">Create</a>
+</div>
+<ul>
+    <li *ngFor="let user in (userList$ | async)">
+        {{ user | json }}
+        <button (click)="destroyUser(user.id)">Destroy</button>
+    </li>
+</ul>

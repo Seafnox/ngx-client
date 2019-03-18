@@ -4,6 +4,7 @@ import { EntityInfoComponent } from './entity-info.component';
 
 @NgModule({
     declarations: [EntityInfoComponent],
+    exports: [EntityInfoComponent],
     imports: [
         CommonModule,
     ],

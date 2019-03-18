@@ -5,6 +5,7 @@ import { LoadingModule } from '../../../components/loading/loading.module';
 
 @NgModule({
     declarations: [UserEditPageComponent],
+    exports: [UserEditPageComponent],
     imports: [
         CommonModule,
         LoadingModule,

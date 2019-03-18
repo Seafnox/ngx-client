@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NotFoundPageModule } from '../not-found/not-found-page.module';
-import { UsersRouting } from './users-routing.module';
+import { UserPagesRouting } from './user-pages.routing';
 import { UserListPageModule } from './list/user-list-page.module';
 import { UserCreatePageModule } from './create/user-create-page.module';
 import { UserEditPageModule } from './edit/user-edit-page.module';
@@ -10,8 +9,7 @@ import { UserInfoPageModule } from './info/user-info-page.module';
 @NgModule({
     declarations: [],
     imports: [
-        CommonModule,
-        UsersRouting,
+        UserPagesRouting,
         NotFoundPageModule,
         UserListPageModule,
         UserCreatePageModule,
@@ -19,4 +17,4 @@ import { UserInfoPageModule } from './info/user-info-page.module';
         UserInfoPageModule,
     ],
 })
-export class UsersModule {}
+export class UserPagesModule {}

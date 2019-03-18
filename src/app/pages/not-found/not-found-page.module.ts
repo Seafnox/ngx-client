@@ -7,5 +7,6 @@ import { NotFoundPageComponent } from './not-found-page.component';
         CommonModule,
     ],
     declarations: [NotFoundPageComponent],
+    exports: [NotFoundPageComponent],
 })
 export class NotFoundPageModule {}

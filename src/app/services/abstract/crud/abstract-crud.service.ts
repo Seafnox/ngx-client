@@ -1,45 +1,44 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { AbstractReadListService } from './abstract-read-list.service';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
-@Injectable({
-    providedIn: 'root',
-})
-export abstract class AbstractCrudService<DTO, DATA> {
-    protected _data$ = new BehaviorSubject<DATA>(this.initialValue);
-    protected lastUpdatedTime: number;
-    protected updateTimeout = 300000;
-
-    protected constructor(
-        protected baseUrl: string,
-        protected http: HttpClient,
-    ) {}
-
-    get data$(): Observable<DATA> {
-        return this._data$.asObservable();
+export abstract class AbstractCrudService<DTO, DATA> extends AbstractReadListService<DTO, DATA> {
+    createEntity$(data: DATA): Observable<DATA> {
+        return (this.http.post(this.createUrl(), this.mapEntityDataToDto(data)) as Observable<DTO>)
+            .pipe(
+                map((dto: DTO) => this.mapEntityDtoToData(dto)),
+                tap((result) => this._data$.next([...this._data$.value, result])),
+                tap(() => this.refreshData()),
+            );
     }
 
-    requestData(): void {
-        if (this.lastUpdatedTime <= (Date.now() + this.updateTimeout)) {
-            this.fetchData()
-                .pipe(map((dto) => this.mapDtoToData(dto)))
-                .subscribe((data) => this._data$.next(data));
-        }
+    updateEntity$(id: string | number, data: DATA): Observable<DATA> {
+        return (this.http.put(this.updateUrl(id), data) as Observable<DTO>)
+            .pipe(
+                map((dto: DTO) => this.mapEntityDtoToData(dto)),
+                tap(() => this.refreshData()),
+            );
     }
 
-    refreshData(): void {
-        this.lastUpdatedTime = 0;
-        this.requestData();
+    destroyEntity$(id: string | number): Observable<DATA> {
+        return (this.http.delete(this.destroyUrl(id)) as Observable<DTO>)
+            .pipe(
+                map((dto: DTO) => this.mapEntityDtoToData(dto)),
+                tap(() => this.refreshData()),
+            );
     }
 
-    protected get initialValue(): DATA {
-        return null;
+    protected createUrl(): string {
+        return this.baseUrl;
     }
 
-    protected abstract mapDtoToData(dto: DTO): DATA;
-
-    protected fetchData(): Observable<DTO> {
-        return this.http.get(this.baseUrl).pipe(map((data): DTO => data as DTO));
+    protected updateUrl(id: string | number): string {
+        return `${this.baseUrl}/${id}`;
     }
+
+    protected destroyUrl(id: string | number): string {
+        return `${this.baseUrl}/${id}`;
+    }
+
+    protected abstract mapEntityDataToDto(data: DATA): DTO;
 }

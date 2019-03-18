@@ -1,10 +1,9 @@
+<a routerLink="../create">Users create</a>
 <div>User list:</div>
-<div>
-    <a routerLink="./create">Create</a>
-</div>
-<ul>
-    <li *ngFor="let user in (userList$ | async)">
+<ul *ngIf="(userList$ | async)?.length > 0; else noData">
+    <li *ngFor="let user of (userList$ | async)">
         {{ user | json }}
         <button (click)="destroyUser(user.id)">Destroy</button>
     </li>
 </ul>
+<ng-template #noData>No Entities</ng-template>

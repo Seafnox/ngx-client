@@ -22,7 +22,7 @@ const routes: Routes = [
                 loadChildren: '../entities/entity-pages.module#EntityPagesModule',
             },
             {
-                path: 'entities',
+                path: 'users',
                 loadChildren: '../users/user-pages.module#UserPagesModule',
             },
             {

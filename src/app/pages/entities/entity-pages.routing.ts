@@ -10,6 +10,7 @@ const routes: Routes = [
     {
         path: '',
         component: EntityListPageComponent,
+        pathMatch: 'full',
     },
     {
         path: 'create',

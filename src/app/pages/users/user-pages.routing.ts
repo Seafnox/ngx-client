@@ -10,6 +10,7 @@ const routes: Routes = [
     {
         path: '',
         component: UserListPageComponent,
+        pathMatch: 'full',
     },
     {
         path: 'create',

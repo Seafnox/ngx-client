@@ -18,6 +18,7 @@
         "deprecation": {
             "severity": "warn"
         },
+        "function-name": false,
         "import-blacklist": [
             true,
             "rxjs/Rx"

@@ -1,2 +1,12 @@
-<div>User list page</div>
-<app-user-list></app-user-list>
+<mat-toolbar class="flex-content">
+    <div class="base-flex-item">
+        User list
+    </div>
+    <button mat-button color="primary" routerLink="/users/create">Create</button>
+</mat-toolbar>
+
+<app-loading *ngIf="(usersService.readInProgress$ | async); else list"></app-loading>
+
+<ng-template #list>
+    <app-user-list [users]="usersService.data$ | async"></app-user-list>
+</ng-template>

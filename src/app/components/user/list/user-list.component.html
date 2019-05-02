@@ -1,9 +1,9 @@
-<a routerLink="../create">Users create</a>
-<div>User list:</div>
-<ul *ngIf="(userList$ | async)?.length > 0; else noData">
-    <li *ngFor="let user of (userList$ | async)">
-        {{ user | json }}
-        <button (click)="destroyUser(user.id)">Destroy</button>
-    </li>
-</ul>
-<ng-template #noData>No Entities</ng-template>
+<mat-list *ngIf="users?.length !== 0; else notFound">
+    <mat-list-item *ngFor="let user of users">
+        {{ user | json}}
+    </mat-list-item>
+</mat-list>
+
+<ng-template #notFound>
+    <mat-toolbar>Users not found</mat-toolbar>
+</ng-template>

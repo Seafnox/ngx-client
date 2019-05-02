@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../../services/users/users.service';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUser } from '../../../services/users/data/IUser';
 
 @Component({
@@ -8,17 +6,10 @@ import { IUser } from '../../../services/users/data/IUser';
     templateUrl: './user-list.component.html',
     styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements OnInit {
-    userList$: Observable<IUser[]>;
+export class UserListComponent {
+    @Input() users: IUser[];
 
-    constructor(public userService: UsersService) {}
+    @Input() selectedId: string;
 
-    ngOnInit(): void {
-        this.userService.requestData();
-        this.userList$ = this.userService.data$;
-    }
-
-    destroyUser(id: string): void {
-        this.userService.destroyEntity$(id).subscribe();
-    }
+    @Output() readonly selectedIdChange = new EventEmitter<string>();
 }

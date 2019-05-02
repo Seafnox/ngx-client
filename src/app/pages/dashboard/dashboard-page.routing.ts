@@ -23,7 +23,7 @@ const routes: Routes = [
             },
             {
                 path: 'users',
-                loadChildren: '../users/user-pages.module#UserPagesModule',
+                loadChildren: '../entities/user-pages.module#UserPagesModule',
             },
             {
                 path: '**',

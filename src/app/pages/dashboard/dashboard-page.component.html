@@ -1,16 +1,38 @@
-<h2>Dashboard</h2>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        [opened]="(isOpenedSidebar$ | async)"
+        fixedInViewport="false"
+        attr.role="navigation"
+        mode="side"
+        class="sidenav">
 
-<div class="ql-action">
-    <app-admin-menu></app-admin-menu>
+        <mat-toolbar (click)="toggleSidebar()" class="pointer">Menu</mat-toolbar>
 
-    <div><a routerLink="/">Home</a></div>
-    <div><a routerLink="/editor">Editors</a></div>
-    <div><a routerLink="/entities">Entities</a></div>
-    <div><a routerLink="/entities/create">Entity create</a></div>
-    <div><a routerLink="/entities/123/info">Entity 123</a></div>
-    <div><a routerLink="/entities/123/edit">Entity 123 edit</a></div>
-</div>
-<div>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/">Dashboard</a>
+            <a mat-list-item routerLink="/editor">Editors</a>
+            <a mat-list-item routerLink="/entities">Entities</a>
+            <a mat-list-item routerLink="/entities/create">Entity create</a>
+            <a mat-list-item routerLink="/entities/123/info">Entity 123</a>
+            <a mat-list-item routerLink="/entities/123/edit">Entity 123 edit</a>
+            <a mat-list-item routerLink="/users">Users</a>
+        </mat-nav-list>
+    </mat-sidenav>
 
-</div>
-<router-outlet></router-outlet>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button
+                mat-icon-button
+                type="button"
+                aria-label="Toggle sidenav"
+                *ngIf="!(isOpenedSidebar$ | async)"
+                (click)="toggleSidebar()">
+
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <div class="offset">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

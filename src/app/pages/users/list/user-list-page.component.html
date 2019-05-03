@@ -2,7 +2,7 @@
     <div class="base-flex-item">
         User list
     </div>
-    <button mat-button color="primary" routerLink="/users/create">Create</button>
+    <button mat-button color="primary" [routerLink]="['create']">Create</button>
 </mat-toolbar>
 
 <app-loading *ngIf="(usersService.readInProgress$ | async); else list"></app-loading>

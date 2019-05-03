@@ -1,7 +1,7 @@
 export interface IUser {
-    id: string;
+    id?: string;
     firstName: string;
     lastName: string;
     age: number;
-    filePath: string;
+    filePath?: string;
 }

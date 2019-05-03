@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IUser } from '../../../services/users/data/IUser';
+import { IUser } from '../../../services/users/data/i-user';
 
 @Component({
     selector: 'app-user-list',

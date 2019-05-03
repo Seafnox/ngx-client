@@ -17,11 +17,11 @@ const routes: Routes = [
         component: UserCreatePageComponent,
     },
     {
-        path: ':id/edit',
+        path: 'edit/:id',
         component: UserEditPageComponent,
     },
     {
-        path: ':id/info',
+        path: 'info/:id',
         component: UserInfoPageComponent,
     },
     {

@@ -1,7 +1,29 @@
-<mat-list *ngIf="users?.length !== 0; else notFound">
-    <mat-list-item *ngFor="let user of users">
-        {{ user | json}}
-    </mat-list-item>
+<mat-list *ngIf="users?.length !== 0; else notFound" class="mat-action-list">
+    <ng-container *ngFor="let user of users">
+        <mat-list-item matRipple class="item" [class.mat-active]="user.id === selectedId" (click)="select(user.id)">
+            <div class="info">
+                {{ user | json}}
+            </div>
+            <div class="actions">
+                <button
+                    mat-icon-button
+                    type="button"
+                    aria-label="Edit"
+                    (click)="edit(user.id)">
+
+                    <mat-icon aria-label="Edit">border_color</mat-icon>
+                </button>
+                <button
+                    mat-icon-button
+                    type="button"
+                    aria-label="Destroy"
+                    (click)="destroy(user.id)">
+
+                    <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+                </button>
+            </div>
+        </mat-list-item>
+    </ng-container>
 </mat-list>
 
 <ng-template #notFound>

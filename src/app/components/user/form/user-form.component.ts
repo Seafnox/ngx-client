@@ -8,19 +8,25 @@ import { IUser } from '../../../services/users/data/i-user';
     styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit {
-    @Input() form: FormGroup;
+    @Input() title: string;
+
+    @Input() data: IUser;
 
     @Output() readonly submitted = new EventEmitter<IUser>();
 
+    form: FormGroup;
+
     ngOnInit(): void {
-        this.form = new FormGroup(this.formControls());
+        this.form = new FormGroup(this.formControls(this.data));
     }
 
-    protected formControls(): Partial<Record<keyof IUser, AbstractControl>> {
+    protected formControls(user: IUser): Partial<Record<keyof IUser, AbstractControl>> {
         return {
-            age: new FormControl('', Validators.required),
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
+            id: new FormControl(user ? user.id : null),
+            filePath: new FormControl(user ? user.filePath : null),
+            age: new FormControl(user ? user.age : '', Validators.required),
+            firstName: new FormControl(user ? user.firstName : '', Validators.required),
+            lastName: new FormControl(user ? user.lastName : '', Validators.required),
         };
     }
 }

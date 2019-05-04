@@ -1,4 +1,12 @@
-<app-loading></app-loading>
-<p>
-  entity edit works!
-</p>
+<ng-container *ngIf="!loading$ || !(loading$ | async); else loading">
+    <app-user-form
+        *ngIf="!!user$ && !!(user$ | async); else loading"
+        [data]="user$ | async"
+        [title]="formTitle"
+        (submitted)="onSubmit($event)"
+    ></app-user-form>
+</ng-container>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

@@ -22,8 +22,6 @@ export class UserListComponent {
     constructor(public userService: UsersService, public router: Router) {}
 
     select(id: string): void {
-        console.log('select', id);
-
         if (this.selectedId === id) {
             return;
         }

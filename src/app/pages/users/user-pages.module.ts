@@ -5,7 +5,6 @@ import { UserPagesRouting } from './user-pages.routing';
 import { UserListPageModule } from './list/user-list-page.module';
 import { UserCreatePageModule } from './create/user-create-page.module';
 import { UserEditPageModule } from './edit/user-edit-page.module';
-import { UserInfoPageModule } from './info/user-info-page.module';
 
 @NgModule({
     declarations: [],
@@ -16,7 +15,6 @@ import { UserInfoPageModule } from './info/user-info-page.module';
         UserListPageModule,
         UserCreatePageModule,
         UserEditPageModule,
-        UserInfoPageModule,
     ],
 })
 export class UserPagesModule {}

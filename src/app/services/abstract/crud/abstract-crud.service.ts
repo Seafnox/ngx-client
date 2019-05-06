@@ -3,10 +3,20 @@ import { Observable } from 'rxjs';
 import { map, publishReplay, refCount, take, tap } from 'rxjs/operators';
 
 export abstract class AbstractCrudService<DTO, DATA> extends AbstractReadListService<DTO, DATA> {
-    getEntity$(id: string | number): Observable<DATA> {
+    getEntityFromData$(id: string | number): Observable<DATA> {
         this.requestData();
 
         return this.getEntityById$(id, this._data$);
+    }
+
+    getFullEntity$(id: string | number): Observable<DATA> {
+        return (this.http.get(this.getUrl(id)) as Observable<DTO>)
+            .pipe(
+                map((dto: DTO) => this.mapEntityDtoToData(dto)),
+                publishReplay(1),
+                refCount(),
+                take(1),
+            );
     }
 
     createEntity$(data: DATA): Observable<DATA> {
@@ -61,6 +71,10 @@ export abstract class AbstractCrudService<DTO, DATA> extends AbstractReadListSer
     }
 
     protected updateUrl(id: string | number): string {
+        return `${this.baseUrl}/${id}`;
+    }
+
+    protected getUrl(id: string | number): string {
         return `${this.baseUrl}/${id}`;
     }
 

@@ -22,7 +22,7 @@ export class UserEditPageComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.user$ = this.userService.getEntity$(this.route.snapshot.params.id);
+        this.user$ = this.userService.getEntityFromData$(this.route.snapshot.params.id);
     }
 
     onSubmit(data: IUser): void {

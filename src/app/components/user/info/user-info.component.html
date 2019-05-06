@@ -1,3 +1,17 @@
-<p>
-  user-info works!
-</p>
+<mat-list *ngIf="realUser$ | async as fullUser; else loading">
+    <mat-list-item>id: {{ fullUser.id }} </mat-list-item>
+    <mat-list-item>firstName: {{ fullUser.firstName }} </mat-list-item>
+    <mat-list-item>lastName: {{ fullUser.lastName }} </mat-list-item>
+    <mat-list-item>age: {{ fullUser.age }} </mat-list-item>
+    <mat-list-item>
+        <img *ngIf="!!fullUser.filePath; else no_file" src="{{ fullUser.filePath }}" alt="{{ fullUser.firstName }} {{ fullUser.lastName }}">
+
+        <ng-template #no_file>
+            <div>No image</div>
+        </ng-template>
+    </mat-list-item>
+</mat-list>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

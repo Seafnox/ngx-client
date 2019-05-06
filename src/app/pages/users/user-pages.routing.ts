@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
 import { UserCreatePageComponent } from './create/user-create-page.component';
 import { UserEditPageComponent } from './edit/user-edit-page.component';
-import { UserInfoPageComponent } from './info/user-info-page.component';
 import { UserListPageComponent } from './list/user-list-page.component';
 
 const routes: Routes = [
@@ -19,10 +18,6 @@ const routes: Routes = [
     {
         path: 'edit/:id',
         component: UserEditPageComponent,
-    },
-    {
-        path: 'info/:id',
-        component: UserInfoPageComponent,
     },
     {
         path: ':id',

@@ -1,10 +1,10 @@
-<mat-list *ngIf="users?.length !== 0; else notFound" class="mat-action-list">
-    <ng-container *ngFor="let user of users">
-        <mat-list-item matRipple class="item" [class.mat-active]="user.id === selectedId" (click)="select(user.id)">
-            <div class="info">
-                {{ user | json}}
-            </div>
-            <div class="actions">
+<mat-accordion *ngIf="users?.length !== 0; else notFound">
+    <mat-expansion-panel *ngFor="let user of users">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ user | json }}
+            </mat-panel-title>
+            <mat-panel-description class="no-grow">
                 <button
                     mat-icon-button
                     type="button"
@@ -21,10 +21,31 @@
 
                     <mat-icon aria-label="Destroy">delete_forever</mat-icon>
                 </button>
-            </div>
-        </mat-list-item>
-    </ng-container>
-</mat-list>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <app-user-info [user]="user"></app-user-info>
+
+        <mat-action-row>
+            <button
+                mat-icon-button
+                type="button"
+                aria-label="Edit"
+                (click)="edit(user.id)">
+
+                <mat-icon aria-label="Edit">border_color</mat-icon>
+            </button>
+            <button
+                mat-icon-button
+                type="button"
+                aria-label="Destroy"
+                (click)="destroy(user.id)">
+
+                <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+            </button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
 
 <ng-template #notFound>
     <mat-toolbar>Users not found</mat-toolbar>

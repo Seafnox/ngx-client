@@ -1,5 +1,8 @@
-const basePath = `http://localhost:8080/rest`;
+const basePath = `http://localhost:8080`;
+const baseApiPath = `${basePath}/rest`;
 
 export const ENDPOINTS = {
-    USERS: `${basePath}/users`,
+    BASE: basePath,
+    BASE_API: baseApiPath,
+    USERS: `${baseApiPath}/users`,
 };

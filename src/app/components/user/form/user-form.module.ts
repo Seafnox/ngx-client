@@ -13,8 +13,5 @@ import { MatCardModule, MatInputModule } from '@angular/material';
         MatCardModule,
         MatInputModule,
     ],
-    exports: [
-        UserFormComponent,
-    ],
 })
 export class UserFormModule {}

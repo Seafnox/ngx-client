@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserEditPageComponent } from './user-edit-page.component';
 import { LoadingModule } from '../../../components/loading/loading.module';
 import { UserFormModule } from '../../../components/user/form/user-form.module';
+import { UserImageFormModule } from '../../../components/user/image-form/user-image-form.module';
 
 @NgModule({
     declarations: [UserEditPageComponent],
@@ -11,6 +12,7 @@ import { UserFormModule } from '../../../components/user/form/user-form.module';
         CommonModule,
         LoadingModule,
         UserFormModule,
+        UserImageFormModule,
     ],
 })
 export class UserEditPageModule {}

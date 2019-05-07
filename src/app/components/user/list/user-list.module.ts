@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list.component';
 import { MatButtonModule, MatExpansionModule, MatIconModule, MatToolbarModule } from '@angular/material';
 import { UserInfoModule } from '../info/user-info.module';
+import { LoadingModule } from '../../loading/loading.module';
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import { UserInfoModule } from '../info/user-info.module';
         MatIconModule,
         MatExpansionModule,
         UserInfoModule,
+        LoadingModule,
     ],
     declarations: [UserListComponent],
     exports: [UserListComponent],

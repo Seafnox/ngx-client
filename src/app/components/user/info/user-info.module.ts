@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserInfoComponent } from './user-info.component';
-import { MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule } from '@angular/material';
 import { LoadingModule } from '../../loading/loading.module';
 
 @NgModule({
@@ -9,6 +9,8 @@ import { LoadingModule } from '../../loading/loading.module';
         CommonModule,
         MatCardModule,
         LoadingModule,
+        MatButtonModule,
+        MatIconModule,
     ],
     declarations: [UserInfoComponent],
     exports: [UserInfoComponent],

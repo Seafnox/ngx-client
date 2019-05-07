@@ -20,6 +20,10 @@ const routes: Routes = [
         component: UserEditPageComponent,
     },
     {
+        path: 'editImage/:id',
+        component: UserEditPageComponent,
+    },
+    {
         path: ':id',
         redirectTo: ':id/info',
         pathMatch: 'full',

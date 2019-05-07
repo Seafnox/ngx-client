@@ -1,0 +1,13 @@
+:host mat-icon {
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.card_image {
+    max-height: 25vh;
+    max-width: 50%;
+    vertical-align: center;
+}

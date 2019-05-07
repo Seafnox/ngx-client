@@ -1,52 +1,49 @@
 <mat-accordion *ngIf="users?.length !== 0; else notFound">
-    <mat-expansion-panel *ngFor="let user of users">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{ user | json }}
-            </mat-panel-title>
-            <mat-panel-description class="no-grow">
-                <button
-                    mat-icon-button
-                    type="button"
-                    aria-label="Edit"
-                    (click)="edit(user.id)">
+    <ng-container *ngFor="let user of users">
+        <mat-expansion-panel *ngIf="!destroying$ || (destroying$ | async); else loading">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ user | json }}
+                </mat-panel-title>
+                <mat-panel-description class="no-grow">
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Edit"
+                        (click)="editImage(user.id)">
 
-                    <mat-icon aria-label="Edit">border_color</mat-icon>
-                </button>
-                <button
-                    mat-icon-button
-                    type="button"
-                    aria-label="Destroy"
-                    (click)="destroy(user.id)">
+                        <mat-icon aria-label="Edit">add_photo_alternate</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Edit"
+                        (click)="edit(user.id)">
 
-                    <mat-icon aria-label="Destroy">delete_forever</mat-icon>
-                </button>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+                        <mat-icon aria-label="Edit">border_color</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Destroy"
+                        (click)="destroy(user.id)">
 
-        <app-user-info [user]="user"></app-user-info>
+                        <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+                    </button>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        <mat-action-row>
-            <button
-                mat-icon-button
-                type="button"
-                aria-label="Edit"
-                (click)="edit(user.id)">
+            Не работает схема лодыря для удаления!
 
-                <mat-icon aria-label="Edit">border_color</mat-icon>
-            </button>
-            <button
-                mat-icon-button
-                type="button"
-                aria-label="Destroy"
-                (click)="destroy(user.id)">
-
-                <mat-icon aria-label="Destroy">delete_forever</mat-icon>
-            </button>
-        </mat-action-row>
-    </mat-expansion-panel>
+            <app-user-info [user]="user"></app-user-info>
+        </mat-expansion-panel>
+    </ng-container>
 </mat-accordion>
 
 <ng-template #notFound>
     <mat-toolbar>Users not found</mat-toolbar>
+</ng-template>
+
+<ng-template #loading>
+    <app-loading></app-loading>
 </ng-template>

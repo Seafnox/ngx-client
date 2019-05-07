@@ -1,10 +1,18 @@
 <ng-container *ngIf="!loading$ || !(loading$ | async); else loading">
-    <app-user-form
-        *ngIf="!!user$ && !!(user$ | async); else loading"
-        [data]="user$ | async"
-        [title]="formTitle"
-        (submitted)="onSubmit($event)"
-    ></app-user-form>
+    <ng-container *ngIf="!!user$; else loading">
+        <ng-container *ngIf="user$ | async as user; else loading">
+            <app-user-form
+                [data]="user"
+                [title]="formTitle"
+                (submitted)="onSubmit($event)"
+            ></app-user-form>
+
+            <app-user-image-form
+                [data]="user"
+                (submitted)="onFileSubmit(user.id, $event)"
+            ></app-user-image-form>
+        </ng-container>
+    </ng-container>
 </ng-container>
 
 <ng-template #loading>

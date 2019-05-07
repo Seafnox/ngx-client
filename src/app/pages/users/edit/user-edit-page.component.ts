@@ -22,11 +22,11 @@ export class UserEditPageComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.user$ = this.userService.getEntityFromData$(this.route.snapshot.params.id);
+        this.user$ = this.userService.getFullEntity$(this.route.snapshot.params.id);
     }
 
     onSubmit(data: IUser): void {
-        this.loading$ = this.userService.createEntity$(data)
+        this.loading$ = this.userService.updateEntity$(this.route.snapshot.params.id, data)
             .pipe(
                 take(1),
                 finalize(() => {
@@ -35,6 +35,10 @@ export class UserEditPageComponent implements OnInit {
                 mapTo(false),
                 startWith(true),
             );
+    }
+
+    onFileSubmit(userId: string, file: File): void {
+        console.error('Not implemented', userId, file);
     }
 
     get formTitle(): string {

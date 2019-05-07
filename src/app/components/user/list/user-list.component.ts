@@ -34,6 +34,10 @@ export class UserListComponent {
         this.router.navigate(['users', 'edit', id]);
     }
 
+    editImage(id: string): void {
+        this.router.navigate(['users', 'edit_image', id]);
+    }
+
     destroy(id: string): void {
         this.destroying$ = this.userService.destroyEntity$(id)
             .pipe(

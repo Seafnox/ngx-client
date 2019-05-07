@@ -1,29 +1,53 @@
-<mat-card *ngIf="realUser$ | async as fullUser; else loading" dense>
-    <mat-card-title>
-        <div>
-            firstName: {{ fullUser.firstName }}
-            <br/>
-            lastName: {{ fullUser.lastName }}
-        </div>
-    </mat-card-title>
-    <mat-card-subtitle>
-        id: {{ fullUser.id }}
-    </mat-card-subtitle>
-    <img
-        mat-card-image
-        *ngIf="!!fullUser.filePath; else no_file"
-        src="{{ baseUrl }}{{ fullUser.filePath }}"
-        alt="{{ fullUser.firstName }} {{ fullUser.lastName }}"
-        class="card_image"
-    />
-    <mat-card-content>
-        age: {{ fullUser.age }}
+<ng-container *ngIf="!destroying$ || (destroying$ | async); else loading">
+    Не работает схема лодыря для удаления!
 
-        <ng-template #no_file>
-            <div>No image</div>
-        </ng-template>
-    </mat-card-content>
-</mat-card>
+    <mat-card *ngIf="realUser$ | async as fullUser; else loading" dense>
+        <mat-card-title>
+            <div>
+                firstName: {{ fullUser.firstName }}
+                <br/>
+                lastName: {{ fullUser.lastName }}
+            </div>
+        </mat-card-title>
+        <mat-card-subtitle>
+            id: {{ fullUser.id }}
+        </mat-card-subtitle>
+        <img
+            mat-card-image
+            *ngIf="!!fullUser.filePath; else no_file"
+            src="{{ baseUrl }}{{ fullUser.filePath }}"
+            alt="{{ fullUser.firstName }} {{ fullUser.lastName }}"
+            class="card_image"
+        />
+        <mat-card-content>
+            age: {{ fullUser.age }}
+
+            <ng-template #no_file>
+                <div>No image</div>
+            </ng-template>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button
+                mat-icon-button
+                type="button"
+                aria-label="Edit"
+                (click)="edit(user.id)">
+
+                <mat-icon aria-label="Edit">border_color</mat-icon>
+            </button>
+            <button
+                mat-icon-button
+                type="button"
+                aria-label="Destroy"
+                (click)="destroy(user.id)">
+
+                <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+
+</ng-container>
 
 <ng-template #loading>
     <app-loading></app-loading>

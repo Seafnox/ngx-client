@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserFormComponent } from './user-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 
 @NgModule({
     declarations: [UserFormComponent],
@@ -12,6 +12,7 @@ import { MatCardModule, MatInputModule } from '@angular/material';
         ReactiveFormsModule,
         MatCardModule,
         MatInputModule,
+        MatButtonModule,
     ],
 })
 export class UserFormModule {}

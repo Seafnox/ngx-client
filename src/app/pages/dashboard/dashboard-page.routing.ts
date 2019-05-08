@@ -18,10 +18,6 @@ const routes: Routes = [
                 loadChildren: '../editors/editors-page.module#EditorsPageModule',
             },
             {
-                path: 'entities',
-                loadChildren: '../entities/entity-pages.module#EntityPagesModule',
-            },
-            {
                 path: 'users',
                 loadChildren: '../users/user-pages.module#UserPagesModule',
             },

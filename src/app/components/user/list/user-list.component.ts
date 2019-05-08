@@ -35,7 +35,11 @@ export class UserListComponent {
     }
 
     editImage(id: string): void {
-        this.router.navigate(['users', 'edit_image', id]);
+        this.router.navigate(['users', 'edit', id], {
+            queryParams: {
+                index: 1,
+            }
+        });
     }
 
     destroy(id: string): void {

@@ -15,6 +15,8 @@ export class UserEditPageComponent implements OnInit {
 
     user$: Observable<IUser>;
 
+    tabIndex = 0;
+
     constructor(
         public userService: UsersService,
         public router: Router,
@@ -23,6 +25,7 @@ export class UserEditPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.user$ = this.userService.getFullEntity$(this.route.snapshot.params.id);
+        this.tabIndex = this.route.snapshot.queryParams.index || 0;
     }
 
     onSubmit(data: IUser): void {
@@ -47,6 +50,15 @@ export class UserEditPageComponent implements OnInit {
                 mapTo(false),
                 startWith(true),
             );
+    }
+
+    changeIndex(index: number): void {
+        this.router.navigate([], {
+            queryParams: {
+                index,
+            },
+            relativeTo: this.route
+        });
     }
 
     get formTitle(): string {

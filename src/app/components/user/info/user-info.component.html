@@ -31,20 +31,22 @@
 
         <mat-card-actions>
             <button
-                mat-icon-button
+                mat-button
                 type="button"
                 aria-label="Edit"
                 (click)="edit(user.id)">
 
                 <mat-icon aria-label="Edit">border_color</mat-icon>
+                Edit
             </button>
             <button
-                mat-icon-button
+                mat-button
                 type="button"
                 aria-label="Destroy"
                 (click)="destroy(user.id)">
 
                 <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+                Delete
             </button>
         </mat-card-actions>
     </mat-card>

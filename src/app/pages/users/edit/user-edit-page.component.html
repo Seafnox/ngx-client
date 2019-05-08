@@ -1,7 +1,7 @@
 <ng-container *ngIf="!loading$ || !(loading$ | async); else loading">
     <ng-container *ngIf="!!user$; else loading">
         <ng-container *ngIf="user$ | async as user; else loading">
-            <mat-tab-group>
+            <mat-tab-group [selectedIndex]="tabIndex" (selectedIndexChange)="changeIndex($event)">
                 <mat-tab label="Edit Info">
                     <app-user-form
                         [data]="user"

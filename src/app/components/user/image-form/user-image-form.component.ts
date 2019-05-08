@@ -3,6 +3,8 @@ import { IUser } from '../../../services/users/data/i-user';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FileInput, FileValidator } from 'ngx-material-file-input';
 import { ENDPOINTS } from '../../../endpoints/endpoints';
+import { fromEvent, Observable, of } from 'rxjs';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-user-image-form',
@@ -18,16 +20,35 @@ export class UserImageFormComponent implements OnInit {
 
     form: FormGroup;
 
+    currentFile$: Observable<string | ArrayBuffer>;
+
     baseUrl = ENDPOINTS.BASE;
 
     ngOnInit(): void {
         this.form = new FormGroup({
             file: new FormControl(undefined, FileValidator.maxContentSize(this.maxSize)),
         });
+
+        this.currentFile$ = this.form.get('file').valueChanges
+            .pipe(
+                startWith(this.form.get('file').value),
+                map((fileInput: FileInput) => fileInput ? fileInput.files[0] : null),
+                switchMap((file) => {
+                    if (!file) {
+                        return of(null);
+                    }
+
+                    const reader = new FileReader();
+
+                    setTimeout(() => reader.readAsDataURL(file));
+
+                    return fromEvent<ProgressEvent>(reader, 'load');
+                }),
+                map((event: ProgressEvent) => event ? (event.target as FileReader).result : null),
+            );
     }
 
     submit(fileInput: FileInput): void {
-        console.log(fileInput ? fileInput.files : fileInput);
-        this.submitted.emit(fileInput.files[0]);
+        this.submitted.emit(fileInput ? fileInput.files[0] : null);
     }
 }

@@ -2,19 +2,27 @@
     <mat-card>
         <mat-card-content>
             <div class="row">
-                <div class="col">
-                    Current:
+                <div class="col text_center">
+                    <div>Current:</div>
                     <img
-                        mat-card-image
                         *ngIf="!!data?.filePath; else no_file"
                         src="{{ baseUrl }}{{ data.filePath }}"
                         alt="{{ data.firstName }} {{ data.lastName }}"
                         class="card_image"
                     />
-                    <ng-template #no_file>
-                        <div>No image</div>
-                    </ng-template>
                 </div>
+                <div class="col text_center">
+                    <div>New:</div>
+                    <img
+                        *ngIf="currentFile$ | async as currentFile; else no_file"
+                        src="{{ currentFile }}"
+                        alt="{{ data.firstName }} {{ data.lastName }}"
+                        class="card_image"
+                    />
+                </div>
+                <ng-template #no_file>
+                    <div>No image</div>
+                </ng-template>
             </div>
             <br/>
             <mat-form-field class="full-width">

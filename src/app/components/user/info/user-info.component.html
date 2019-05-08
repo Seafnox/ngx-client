@@ -12,14 +12,16 @@
         <mat-card-subtitle>
             id: {{ fullUser.id }}
         </mat-card-subtitle>
-        <img
-            mat-card-image
-            *ngIf="!!fullUser.filePath; else no_file"
-            src="{{ baseUrl }}{{ fullUser.filePath }}"
-            alt="{{ fullUser.firstName }} {{ fullUser.lastName }}"
-            class="card_image"
-        />
         <mat-card-content>
+            <div class="text_center">
+                <img
+                    *ngIf="!!fullUser.filePath; else no_file"
+                    src="{{ baseUrl }}{{ fullUser.filePath }}"
+                    alt="{{ fullUser.firstName }} {{ fullUser.lastName }}"
+                    class="card_image"
+                />
+            </div>
+
             age: {{ fullUser.age }}
 
             <ng-template #no_file>

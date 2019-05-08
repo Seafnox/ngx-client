@@ -5,7 +5,7 @@ import { AbstractCrudService } from '../abstract/crud/abstract-crud.service';
 import { HttpClient } from '@angular/common/http';
 import { ENDPOINTS } from '../../endpoints/endpoints';
 import { Observable } from 'rxjs';
-import { filter, map, publishReplay, refCount, take } from 'rxjs/operators';
+import { filter, map, publishReplay, refCount, take, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -15,6 +15,26 @@ export class UsersService extends AbstractCrudService<IUserDto, IUser> {
         http: HttpClient,
     ) {
         super(ENDPOINTS.USERS, http);
+    }
+
+    updateUserImage$(id: string, file: File): Observable<IUser> {
+        const endpoint = `${this.baseUrl}/${id}/avatar`;
+        const uploadData = new FormData();
+
+        uploadData.append('file', file);
+
+        const process = (this.http.put(endpoint, uploadData) as Observable<IUserDto>)
+            .pipe(
+                map((dto: IUserDto) => this.mapEntityDtoToData(dto)),
+                tap(() => this.refreshData()),
+                publishReplay(1),
+                refCount(),
+                take(1),
+            );
+
+        process.subscribe();
+
+        return process;
     }
 
     protected mapEntityDataToDto(data: IUser): Partial<IUserDto> {
@@ -34,5 +54,4 @@ export class UsersService extends AbstractCrudService<IUserDto, IUser> {
             refCount(),
         );
     }
-
 }

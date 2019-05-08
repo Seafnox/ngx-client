@@ -37,8 +37,7 @@ export class UserEditPageComponent implements OnInit {
             );
     }
 
-    onFileSubmit(userId: string, file: File): void {
-        console.error('Not implemented', userId, file);
+    onFileSubmit(file: File): void {
         this.loading$ = this.userService.updateUserImage$(this.route.snapshot.params.id, file)
             .pipe(
                 take(1),

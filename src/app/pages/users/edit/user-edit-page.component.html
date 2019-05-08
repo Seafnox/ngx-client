@@ -1,16 +1,22 @@
 <ng-container *ngIf="!loading$ || !(loading$ | async); else loading">
     <ng-container *ngIf="!!user$; else loading">
         <ng-container *ngIf="user$ | async as user; else loading">
-            <app-user-form
-                [data]="user"
-                [title]="formTitle"
-                (submitted)="onSubmit($event)"
-            ></app-user-form>
+            <mat-tab-group>
+                <mat-tab label="Edit Info">
+                    <app-user-form
+                        [data]="user"
+                        [title]="formTitle"
+                        (submitted)="onSubmit($event)"
+                    ></app-user-form>
+                </mat-tab>
+                <mat-tab label="Edit Image">
+                    <app-user-image-form
+                        [data]="user"
+                        (submitted)="onFileSubmit($event)"
+                    ></app-user-image-form>
+                </mat-tab>
+            </mat-tab-group>
 
-            <app-user-image-form
-                [data]="user"
-                (submitted)="onFileSubmit(user.id, $event)"
-            ></app-user-image-form>
         </ng-container>
     </ng-container>
 </ng-container>

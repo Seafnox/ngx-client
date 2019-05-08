@@ -20,11 +20,6 @@ const routes: Routes = [
         component: UserEditPageComponent,
     },
     {
-        path: ':id',
-        redirectTo: ':id/info',
-        pathMatch: 'full',
-    },
-    {
         path: '**',
         component: NotFoundPageComponent,
     },

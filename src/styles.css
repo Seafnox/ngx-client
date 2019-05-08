@@ -26,3 +26,31 @@ body img { display: inline-block; }
 .full-width {
     width: 100%;
 }
+
+.icon_size-16 {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.icon_size-32 {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.icon_size-64 {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 64px;
+    line-height: 64px;
+}
+
+.icon_size-128 {
+    width: 128px !important;
+    height: 128px !important;
+    font-size: 128px;
+    line-height: 128px;
+}

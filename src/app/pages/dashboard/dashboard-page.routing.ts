@@ -26,6 +26,10 @@ const routes: Routes = [
                 loadChildren: '../articles/article-pages.module#ArticlePagesModule',
             },
             {
+                path: 'galleries',
+                loadChildren: '../galleries/gallery-pages.module#GalleryPagesModule',
+            },
+            {
                 path: '**',
                 component: NotFoundPageComponent,
             },

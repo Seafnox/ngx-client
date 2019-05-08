@@ -26,8 +26,8 @@ const routes: Routes = [
                 loadChildren: '../users/user-pages.module#UserPagesModule',
             },
             {
-                path: 'posts',
-                loadChildren: '../posts/post-pages.module#PostPagesModule',
+                path: 'articles',
+                loadChildren: '../articles/article-pages.module#ArticlePagesModule',
             },
             {
                 path: '**',

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostEditPageComponent } from './post-edit-page.component';
+import { ArticleEditPageComponent } from './article-edit-page.component';
 
-describe('PostEditPageComponent', () => {
-    let component: PostEditPageComponent;
-    let fixture: ComponentFixture<PostEditPageComponent>;
+describe('ArticleEditPageComponent', () => {
+    let component: ArticleEditPageComponent;
+    let fixture: ComponentFixture<ArticleEditPageComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PostEditPageComponent],
+            declarations: [ArticleEditPageComponent],
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(PostEditPageComponent);
+        fixture = TestBed.createComponent(ArticleEditPageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

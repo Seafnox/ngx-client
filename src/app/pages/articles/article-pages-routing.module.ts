@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from '../not-found/not-found-page.component';
-import { PostListPageComponent } from './list/post-list-page.component';
-import { PostEditPageComponent } from './edit/post-edit-page.component';
-import { PostCreatePageComponent } from './create/post-create-page.component';
+import { ArticleListPageComponent } from './list/article-list-page.component';
+import { ArticleEditPageComponent } from './edit/article-edit-page.component';
+import { ArticleCreatePageComponent } from './create/article-create-page.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: PostListPageComponent,
+        component: ArticleListPageComponent,
         pathMatch: 'full',
     },
     {
         path: 'create',
-        component: PostCreatePageComponent,
+        component: ArticleCreatePageComponent,
     },
     {
         path: 'edit/:id',
-        component: PostEditPageComponent,
+        component: ArticleEditPageComponent,
     },
     {
         path: '**',
@@ -29,4 +29,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class PostPagesRouting {}
+export class ArticlePagesRoutingModule {}

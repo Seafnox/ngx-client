@@ -1,0 +1,49 @@
+<mat-accordion *ngIf="entities?.length !== 0; else notFound">
+    <ng-container *ngFor="let entity of entities">
+        <mat-expansion-panel *ngIf="!destroying$ || (destroying$ | async); else loading">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ entity | json }}
+                </mat-panel-title>
+                <mat-panel-description class="no-grow">
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Edit"
+                        (click)="editImage(entity.id)">
+
+                        <mat-icon aria-label="Edit">add_photo_alternate</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Edit"
+                        (click)="edit(entity.id)">
+
+                        <mat-icon aria-label="Edit">border_color</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        type="button"
+                        aria-label="Destroy"
+                        (click)="destroy(entity.id)">
+
+                        <mat-icon aria-label="Destroy">delete_forever</mat-icon>
+                    </button>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            Не работает схема лодыря для удаления!
+
+            <app-gallery-info [entity]="entity"></app-gallery-info>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>
+
+<ng-template #notFound>
+    <mat-toolbar>Entities not found</mat-toolbar>
+</ng-template>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

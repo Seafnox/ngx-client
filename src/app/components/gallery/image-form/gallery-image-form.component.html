@@ -1,0 +1,43 @@
+<form [formGroup]="form" novalidate (ngSubmit)="submit(form.value.file)">
+    <mat-card>
+        <mat-card-content>
+            <div class="row">
+                <div class="col text_center">
+                    <div>Current:</div>
+                    <img
+                        *ngIf="!!data?.filePath; else no_file"
+                        src="{{ baseUrl }}{{ data.filePath }}"
+                        alt="{{ data.firstName }} {{ data.lastName }}"
+                        class="card_image"
+                    />
+                </div>
+                <div class="col text_center">
+                    <div>New:</div>
+                    <img
+                        *ngIf="currentFile$ | async as currentFile; else no_file"
+                        src="{{ currentFile }}"
+                        alt="{{ data.firstName }} {{ data.lastName }}"
+                        class="card_image"
+                    />
+                </div>
+                <ng-template #no_file>
+                    <app-no-image class="card_image"></app-no-image>
+                </ng-template>
+            </div>
+            <br/>
+            <mat-form-field class="full-width">
+                <ngx-mat-file-input #removableInput formControlName="file" placeholder="New File" valuePlaceholder="New file is not selected"></ngx-mat-file-input>
+                <mat-icon matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">clear</mat-icon>
+                <mat-icon matSuffix>folder</mat-icon>
+                <mat-error *ngIf="form.get('file').hasError('maxContentSize')">
+                    The total size must not exceed
+                    {{form.get('file').getError('maxContentSize').maxSize | byteFormat}}
+                    ({{form.get('file').getError('maxContentSize').actualSize | byteFormat}}).
+                </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

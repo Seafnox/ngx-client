@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+.no-grow {
+    flex: 0 0 auto;
+}

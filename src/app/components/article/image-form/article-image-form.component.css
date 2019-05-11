@@ -1,0 +1,8 @@
+:host mat-icon {
+    cursor: pointer;
+}
+
+.card_image {
+    max-height: 25vh;
+    max-width: 100%;
+}

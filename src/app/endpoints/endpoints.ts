@@ -5,4 +5,6 @@ export const ENDPOINTS = {
     BASE: basePath,
     BASE_API: baseApiPath,
     USERS: `${baseApiPath}/users`,
+    ARTICLES: `${baseApiPath}/articles`,
+    GALLERIES: `${baseApiPath}/galleries`,
 };

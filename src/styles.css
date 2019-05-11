@@ -4,6 +4,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 body * { display: block; }
 body img { display: inline-block; }
+body strong { display: inline-block; }
+body b { display: inline-block; }
+body s { display: inline-block; }
+body em { display: inline-block; }
+body u { display: inline-block; }
+body span { display: inline-block; }
 
 .row {
     display: flex;

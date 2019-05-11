@@ -1,3 +1,26 @@
-<p>
-  edit works!
-</p>
+<ng-container *ngIf="!loading$ || !(loading$ | async); else loading">
+    <ng-container *ngIf="!!entity$; else loading">
+        <ng-container *ngIf="entity$ | async as entity; else loading">
+            <mat-tab-group [selectedIndex]="tabIndex" (selectedIndexChange)="changeIndex($event)">
+                <mat-tab label="Edit Info">
+                    <app-article-form
+                        [data]="entity"
+                        [title]="formTitle"
+                        (submitted)="onSubmit($event)"
+                    ></app-article-form>
+                </mat-tab>
+                <mat-tab label="Edit Image">
+                    <app-article-image-form
+                        [data]="entity"
+                        (submitted)="onFileSubmit($event)"
+                    ></app-article-image-form>
+                </mat-tab>
+            </mat-tab-group>
+
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

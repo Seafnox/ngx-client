@@ -1,0 +1,7 @@
+.flex-content {
+    display: flex;
+}
+
+.base-flex-item {
+    flex: 1 1 auto;
+}

@@ -1,3 +1,5 @@
-<p>
-  create works!
-</p>
+<app-article-form *ngIf="!loading$ || !(loading$ | async); else loading" title="New article:" (submitted)="onSubmit($event)"></app-article-form>
+
+<ng-template #loading>
+    <app-loading></app-loading>
+</ng-template>

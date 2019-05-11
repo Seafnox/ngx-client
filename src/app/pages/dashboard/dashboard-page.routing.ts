@@ -14,10 +14,6 @@ const routes: Routes = [
                 component: DashboardComponent,
             },
             {
-                path: 'editor',
-                loadChildren: '../editors/editors-page.module#EditorsPageModule',
-            },
-            {
                 path: 'users',
                 loadChildren: '../users/user-pages.module#UserPagesModule',
             },

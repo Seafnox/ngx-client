@@ -5,7 +5,7 @@ import { NotFoundPageComponent } from '../pages/not-found/not-found-page.compone
 const routes: Routes = [
     {
         path: '',
-        loadChildren: '../pages/dashboard/dashboard-page.module#DashboardPageModule',
+        loadChildren: () => import('../pages/dashboard/dashboard-page.module').then(m => m.DashboardPageModule),
     },
     {
         path: '**',

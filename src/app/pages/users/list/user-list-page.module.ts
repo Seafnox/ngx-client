@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UserListPageComponent } from './user-list-page.component';
 import { LoadingModule } from '../../../components/loading/loading.module';
 import { UserListModule } from '../../../components/user/list/user-list.module';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

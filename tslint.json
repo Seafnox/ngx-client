@@ -40,7 +40,6 @@
         "no-null-keyword": false,
         "no-redundant-jsdoc": true,
         "no-switch-case-fall-through": true,
-        "no-use-before-declare": true,
         "no-var-requires": false,
         "no-void-expression": false,
         "object-literal-key-quotes": [

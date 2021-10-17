@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
+## FEATURES
+
+- fix linting
+- change file picker (possible to https://github.com/h2qutc/angular-material-components)
+- clear deps
+- test quill
+- check medium editor
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NoImageComponent } from './no-image.component';
 
@@ -6,7 +6,7 @@ describe('NoImageComponent', () => {
     let component: NoImageComponent;
     let fixture: ComponentFixture<NoImageComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [NoImageComponent],
         })
